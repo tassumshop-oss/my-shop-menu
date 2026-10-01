@@ -6,109 +6,140 @@
 <title>Our Items</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream: #FAF5EC;
-    --ink: #29241E;
-    --ink-soft: #6E655A;
-    --line: #E4DACB;
-    --emerald: #2F4C3E;
-    --emerald-soft: #EAF0EC;
-    --gold: #B98A3D;
-    --card: #FFFFFF;
-    font-size: 16px;
+    --cream: #FAF5EC; --ink: #29241E; --ink-soft: #6E655A; --line: #E4DACB;
+    --emerald: #2F4C3E; --emerald-dark: #1E332A; --emerald-soft: #EAF0EC; --gold: #B98A3D;
+    --card: #FFFFFF; font-size: 16px;
   }
   * { box-sizing: border-box; }
   html, body {
-    margin: 0; padding: 0;
-    background: var(--cream);
-    color: var(--ink);
-    font-family: 'Work Sans', system-ui, sans-serif;
-    padding-top: env(safe-area-inset-top, 0px);
-    padding-bottom: env(safe-area-inset-bottom, 0px);
+    margin: 0; padding: 0; background: var(--cream); color: var(--ink);
+    font-family: 'Work Sans', system-ui, sans-serif; scroll-behavior: smooth;
+    padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px);
   }
-  h1, h2, .display {
-    font-family: 'Fraunces', Georgia, serif;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-  }
-  .wrap { max-width: 720px; margin: 0 auto; padding: 28px 20px 60px; }
+  h1, h2, h3, .display { font-family: 'Fraunces', Georgia, serif; letter-spacing: -0.01em; }
+  img { max-width: 100%; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+  a { color: inherit; }
 
-  header.shop-header { text-align: center; margin-bottom: 22px; }
-  header.shop-header img.logo {
-    width: 64px; height: 64px; object-fit: cover; border-radius: 50%;
-    margin-bottom: 10px; border: 1px solid var(--line);
+  /* ---------- HERO ---------- */
+  .hero {
+    background: radial-gradient(circle at 15% 10%, #37543f 0%, var(--emerald) 55%, var(--emerald-dark) 100%);
+    color: #fff; text-align: center; padding: 44px 20px 40px; position: relative; overflow: hidden;
   }
-  header.shop-header h1 { font-size: 28px; margin: 0 0 4px; color: var(--emerald); }
-  header.shop-header .updated { font-size: 12px; color: var(--ink-soft); }
+  .hero::before { content: ''; position: absolute; width: 380px; height: 380px; border-radius: 50%; background: rgba(255,255,255,0.06); top: -180px; right: -120px; }
+  .hero-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+  .hero img.logo { width: 76px; height: 76px; object-fit: cover; border-radius: 50%; border: 2px solid rgba(255,255,255,0.5); margin-bottom: 14px; }
+  .hero h1 { font-size: 30px; font-weight: 700; margin: 0 0 8px; }
+  .hero .about { font-size: 14.5px; line-height: 1.6; color: #dce7e0; margin: 0 auto 18px; max-width: 520px; }
+  .hero .location { font-size: 13px; color: #cfe0d6; display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; }
+  .hero .location span { display: inline-flex; align-items: center; gap: 6px; }
+  .updated { font-size: 11.5px; color: #b9ccc0; margin-top: 14px; }
 
-  .controls {
-    display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
-    margin: 18px 0 28px;
-  }
+  /* ---------- NAV PILLS (jump links) ---------- */
+  .section-nav { position: sticky; top: 0; z-index: 20; background: var(--cream); border-bottom: 1px solid var(--line); }
+  .section-nav .row { display: flex; gap: 8px; overflow-x: auto; padding: 10px 20px; max-width: 900px; margin: 0 auto; scrollbar-width: none; }
+  .section-nav .row::-webkit-scrollbar { display: none; }
+  .section-nav button { flex: 0 0 auto; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; font-size: 12.5px; font-family: inherit; color: var(--ink); cursor: pointer; white-space: nowrap; }
+  .section-nav button.active { background: var(--emerald); color: #fff; border-color: var(--emerald); }
+
+  .controls { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: 18px 0 6px; }
   .controls select {
-    appearance: none; -webkit-appearance: none;
-    background: var(--card); border: 1px solid var(--line); color: var(--ink);
-    font-family: inherit; font-size: 14px; padding: 8px 30px 8px 14px;
-    border-radius: 999px; cursor: pointer;
+    appearance: none; -webkit-appearance: none; background: var(--card); border: 1px solid var(--line); color: var(--ink);
+    font-family: inherit; font-size: 13px; padding: 7px 28px 7px 13px; border-radius: 999px; cursor: pointer;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%236E655A'/%3E%3C/svg%3E");
-    background-repeat: no-repeat; background-position: right 12px center;
+    background-repeat: no-repeat; background-position: right 11px center;
   }
 
-  .category { margin-bottom: 34px; }
-  .category h2 {
-    font-size: 20px; color: var(--emerald);
-    border-bottom: 1px solid var(--line); padding-bottom: 8px; margin-bottom: 14px;
-  }
-  .items-grid {
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;
-  }
+  section.page-section { padding: 34px 0 6px; }
+  section.page-section h2 { font-size: 21px; color: var(--emerald); margin: 0 0 4px; }
+  section.page-section .section-sub { font-size: 12.5px; color: var(--ink-soft); margin: 0 0 16px; }
+
+  /* ---------- NEW ARRIVALS (horizontal scroll) ---------- */
+  .arrivals-row { display: flex; gap: 12px; overflow-x: auto; padding: 2px 20px 10px; margin: 0 -20px; scrollbar-width: none; }
+  .arrivals-row::-webkit-scrollbar { display: none; }
+  .arrival-card { flex: 0 0 132px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; position: relative; }
+  .arrival-card .photo { width: 100%; aspect-ratio: 1/1; background: var(--emerald-soft); }
+  .arrival-card .photo img { width: 100%; height: 100%; object-fit: cover; }
+  .arrival-card .badge { position: absolute; top: 7px; left: 7px; background: var(--gold); color: #fff; font-size: 9.5px; letter-spacing: 0.03em; padding: 2px 7px; border-radius: 999px; text-transform: uppercase; }
+  .arrival-card .info { padding: 8px 10px 10px; }
+  .arrival-card .name { font-size: 12.5px; font-weight: 500; margin: 0 0 2px; line-height: 1.25; }
+  .arrival-card .price { font-size: 12.5px; font-weight: 600; color: var(--emerald); }
+
+  /* ---------- GALLERY ---------- */
+  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .gallery-grid .g-item { aspect-ratio: 1/1; border-radius: 8px; overflow: hidden; background: var(--emerald-soft); position: relative; }
+  .gallery-grid .g-item img { width: 100%; height: 100%; object-fit: cover; }
+  .gallery-grid .g-item .cap { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.55)); color: #fff; font-size: 10px; padding: 12px 6px 5px; }
+
+  /* ---------- ITEMS ---------- */
+  .category { margin-bottom: 30px; }
+  .category h2 { font-size: 19px; color: var(--emerald); border-bottom: 1px solid var(--line); padding-bottom: 7px; margin-bottom: 13px; }
+  .items-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 13px; }
   @media (min-width: 480px) { .items-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 720px) { .items-grid { grid-template-columns: repeat(4, 1fr); } }
 
-  .item-card {
-    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
-    overflow: hidden; position: relative; display: flex; flex-direction: column;
-  }
-  .item-card .photo {
-    width: 100%; aspect-ratio: 1 / 1; background: var(--emerald-soft);
-    display: flex; align-items: center; justify-content: center; overflow: hidden;
-  }
+  .item-card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; position: relative; display: flex; flex-direction: column; }
+  .item-card .photo { width: 100%; aspect-ratio: 1/1; background: var(--emerald-soft); display: flex; align-items: center; justify-content: center; overflow: hidden; }
   .item-card .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .item-card .photo .placeholder { color: var(--emerald); opacity: 0.35; font-size: 26px; }
-  .item-card .info { padding: 10px 12px 12px; flex: 1; display: flex; flex-direction: column; }
-  .item-card .name { font-size: 14px; font-weight: 500; margin: 0 0 3px; line-height: 1.25; }
-  .item-card .desc { font-size: 12px; color: var(--ink-soft); margin: 0 0 8px; line-height: 1.4; flex: 1; }
-  .item-card .price { font-size: 14px; font-weight: 600; color: var(--emerald); }
-  .item-card .price .approx { font-weight: 400; color: var(--ink-soft); font-size: 11px; }
-
+  .item-card .photo .placeholder { color: var(--emerald); opacity: 0.35; font-size: 24px; }
+  .item-card .info { padding: 10px 11px 11px; flex: 1; display: flex; flex-direction: column; }
+  .item-card .name { font-size: 13.5px; font-weight: 500; margin: 0 0 3px; line-height: 1.25; }
+  .item-card .desc { font-size: 11.5px; color: var(--ink-soft); margin: 0 0 7px; line-height: 1.4; flex: 1; }
+  .item-card .price { font-size: 13.5px; font-weight: 600; color: var(--emerald); }
+  .item-card .price .approx { font-weight: 400; color: var(--ink-soft); font-size: 10.5px; }
   .item-card.sold-out .photo img, .item-card.sold-out .photo .placeholder { filter: grayscale(1); opacity: 0.5; }
-  .sold-out-badge {
-    position: absolute; top: 8px; left: 8px; background: var(--ink);
-    color: var(--cream); font-size: 10px; letter-spacing: 0.02em;
-    padding: 3px 8px; border-radius: 999px;
-  }
+  .badge-corner { position: absolute; top: 8px; left: 8px; font-size: 9.5px; letter-spacing: 0.02em; padding: 3px 8px; border-radius: 999px; text-transform: uppercase; }
+  .badge-corner.sold { background: var(--ink); color: var(--cream); }
+  .badge-corner.new { background: var(--gold); color: #fff; }
 
-  footer { text-align: center; font-size: 12px; color: var(--ink-soft); margin-top: 40px; }
+  footer { text-align: center; font-size: 11.5px; color: var(--ink-soft); margin: 46px 0 30px; padding-top: 20px; border-top: 1px solid var(--line); }
   .empty-state { text-align: center; padding: 60px 20px; color: var(--ink-soft); }
   .empty-state .display { font-size: 20px; color: var(--emerald); margin-bottom: 8px; }
+  .hidden { display: none !important; }
 </style>
 </head>
 <body>
-  <div class="wrap">
-    <header class="shop-header" id="shopHeader">
+  <header class="hero" id="hero">
+    <div class="hero-inner">
+      <div id="shopHeaderTop"></div>
       <h1 id="shopName">Loading…</h1>
+      <p class="about hidden" id="aboutText"></p>
+      <div class="location hidden" id="locationRow"></div>
       <div class="updated" id="updatedAt"></div>
-    </header>
+    </div>
+  </header>
 
+  <nav class="section-nav" id="sectionNav" hidden>
+    <div class="row" id="sectionNavRow"></div>
+  </nav>
+
+  <div class="wrap">
     <div class="controls" id="controls" hidden>
       <select id="languageSelect" aria-label="Language"></select>
       <select id="currencySelect" aria-label="Currency" hidden></select>
     </div>
 
-    <main id="menuContent">
-      <div class="empty-state"><div class="display">One moment…</div></div>
-    </main>
+    <section class="page-section hidden" id="arrivalsSection">
+      <h2>New Arrivals</h2>
+      <p class="section-sub">Just landed — get them before they're gone.</p>
+      <div class="arrivals-row" id="arrivalsRow"></div>
+    </section>
+
+    <section class="page-section hidden" id="gallerySection">
+      <h2>Gallery</h2>
+      <p class="section-sub">A look inside the shop.</p>
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </section>
+
+    <section class="page-section" id="itemsSection">
+      <h2 id="itemsHeading">Our Items</h2>
+      <main id="menuContent">
+        <div class="empty-state"><div class="display">One moment…</div></div>
+      </main>
+    </section>
 
     <footer id="pageFooter" hidden>Prices and availability update whenever the shop publishes new items.</footer>
   </div>
