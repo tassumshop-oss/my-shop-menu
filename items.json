@@ -7,7 +7,7 @@
     "symbol": "GHS"
   },
   "displayCurrencies": [],
-  "aboutText": "",
+  "aboutText": "Makes your public items page feel like a real shop website — an about blurb, your location, new-arrival highlights (automatic for anything added in the last 14 days), and a small photo gallery of the shop itself.  About your shop",
   "location": {
     "address": "Accra Mall",
     "phone": "0240355425"
@@ -32,5 +32,5 @@
       "translations": {}
     }
   ],
-  "publishedAt": "2026-10-05 08:34:59"
+  "publishedAt": "2026-10-05 08:37:26"
 }
