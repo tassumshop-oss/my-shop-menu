@@ -100,6 +100,16 @@
   .empty-state .display { font-size: 20px; color: var(--emerald); margin-bottom: 8px; }
   .hidden { display: none !important; }
 </style>
+<style>
+  .chat-fab{position:fixed;right:16px;bottom:16px;z-index:50;width:56px;height:56px;border-radius:50%;border:none;background:#2a1f2d;color:#fff;font-size:24px;box-shadow:0 6px 18px rgba(0,0,0,.25);cursor:pointer;}
+  .chat-panel{position:fixed;right:16px;bottom:84px;z-index:50;width:min(360px,calc(100vw - 32px));max-height:70vh;background:#fff;border:1px solid #e6dfe9;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.2);display:none;flex-direction:column;overflow:hidden;}
+  .chat-panel.open{display:flex;}
+  .chat-head{padding:12px 14px;background:#2a1f2d;color:#fff;font-weight:600;font-size:14px;}
+  .chat-log{padding:12px;overflow:auto;display:flex;flex-direction:column;gap:8px;min-height:140px;}
+  .chat-msg{padding:9px 12px;border-radius:12px;font-size:14px;line-height:1.45;white-space:pre-wrap;max-width:88%;}
+  .chat-me{align-self:flex-end;background:#2a1f2d;color:#fff;} .chat-bot{align-self:flex-start;background:#f3eef5;color:#222;}
+  .chat-form{display:flex;gap:6px;padding:10px;border-top:1px solid #eee;} .chat-form input{flex:1;padding:10px;border:1px solid #ddd;border-radius:10px;font-size:15px;} .chat-form button{border:none;background:#2a1f2d;color:#fff;border-radius:10px;padding:0 14px;font-size:14px;}
+</style>
 </head>
 <body>
   <header class="hero" id="hero">
@@ -136,6 +146,7 @@
 
     <section class="page-section" id="itemsSection">
       <h2 id="itemsHeading">Our Items</h2>
+      <input id="menuSearch" type="search" placeholder="Search our items…" autocomplete="off" hidden style="width:100%;max-width:420px;padding:12px 14px;margin:0 0 18px;border:1px solid var(--line,#ddd);border-radius:12px;font-size:16px;">
       <main id="menuContent">
         <div class="empty-state"><div class="display">One moment…</div></div>
       </main>
@@ -143,6 +154,13 @@
 
     <footer id="pageFooter" hidden>Prices and availability update whenever the shop publishes new items.</footer>
   </div>
+  <button class="chat-fab" id="chatFab" aria-label="Ask about our items" title="Ask about our items">&#128172;</button>
+  <div class="chat-panel" id="chatPanel" role="dialog" aria-label="Shop assistant">
+    <div class="chat-head">Ask about our items</div>
+    <div class="chat-log" id="chatLog"></div>
+    <form class="chat-form" id="chatForm"><input id="chatInput" placeholder="e.g. do you have sandals?" autocomplete="off"><button type="submit">&#10148;</button></form>
+  </div>
+  <script src="assistant-engine.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
